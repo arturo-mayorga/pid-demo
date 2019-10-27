@@ -1,0 +1,180 @@
+<html>
+	<head>
+			<link rel="stylesheet" href="https://duckduckgo.com/s1823.css" type="text/css">
+
+			<script type="text/javascript" src="./index.js"></script>
+
+		<style>
+			body {
+				background-color: rgb(50, 54, 57);
+				font-family: Arial;
+				font-size: 9pt;
+			}
+
+			div { 
+				margin-left: 1em;
+				margin-right: 1em;
+			}
+			
+			.toolbar {
+				background-color: #fff;
+				list-style-type: none;
+				margin: 0;
+				padding: 0.3em;
+				height: 2.2em;
+				overflow: hidden;
+			}
+			
+			.toolbar li {
+				display: inline-block;
+				height: 2em;
+				
+			}
+			
+			.toolbar li a {
+				border-radius: 1.25em;
+				display: inline-block;
+				color: #000;
+				height: 1.25em;
+				padding: .5em .75em;
+				text-decoration: none;
+			}
+			
+			.toolbar li a:hover {
+			
+				background-color: rgb(100, 108, 114);
+				color: white;
+			}
+			
+			.toolbar li a span {
+				display: table-cell;
+				
+				height: 1.25em;
+			}
+			
+			.toolbar li a span::before {
+  				content: "\00a0";
+  			}
+			
+			.toolbar li a .jira-ico, 
+			.toolbar li a .splunk-ico, 
+			.toolbar li a .svgedit-ico,
+			.toolbar li a .github-ico,
+			.toolbar li a .grafana-ico, 
+			.toolbar li a .wp-ico, 
+			.toolbar li a .bb-ico {
+				width: 1.25em;
+				height: 1.25em;
+				display: table-cell;
+				vertical-align: baseline;
+			}
+			
+			.card-container {
+				margin-top: 1em;
+				margin-left: auto;
+  				margin-right: auto;
+				max-width: 80em;
+				display: grid;
+				grid-template-columns: auto;
+				grid-gap: 1em;
+			}
+
+			.card-item {
+				background-color: #fff;
+				padding: 1em;
+				text-align: center;
+			}
+			
+			.linkbtn-container {
+				margin-top: 1em;
+				margin-left: auto;
+  				margin-right: auto;
+				max-width: 80em;
+				display: grid;
+				grid-template-columns: auto auto auto auto auto auto;
+				grid-gap: 1em;
+			}
+
+			.linkbtn-item {
+				padding: .25em;
+				text-align: center;
+			}
+			
+			.linkbtn-item a .jira-ico,
+			.linkbtn-item a .splunk-ico,
+			.linkbtn-item a .svgedit-ico,
+			.linkbtn-item a .github-ico,
+			.linkbtn-item a .grafana-ico,
+			.linkbtn-item a .wp-ico, 
+			.linkbtn-item a .bb-ico {
+				margin-left: auto;
+				margin-right: auto;
+				
+				width: 4em;
+				height: 4em;
+			}
+			
+			.linkbtn-fullrow {
+				grid-column-start: 1;
+  				grid-column-end: 7;
+				text-align: left;
+				font-size: 12pt;
+			}
+			
+			.linkbtn-item a {
+				border-radius: 1.25em;
+				display: block;
+				color: #000;
+				width: 100%;
+				height: 100%;
+				padding: 1em 0em;
+				text-decoration: none;
+			}
+			
+			.linkbtn-item a:hover {
+				background-color: rgb(100, 108, 114);
+				color: white;
+			}
+			
+			.linkbtn-item a span {
+				display: block;
+				padding-top: 0.5em;
+			}
+
+			.chart-container {
+				height: 50em;
+				background-color: rgb(50, 54, 57);
+			}
+
+			.chart {
+				width: 100%;
+				height: 100%;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<ul class="toolbar">
+			
+		</ul>
+		
+		<div id="cards" class="card-container">
+			<div class='card-item'>
+					<div class='linkbtn-item linkbtn-fullrow'>PID Terms</div>
+					<form id="search_form_homepage" class="search--home  js-search-form search--adv" name="x">
+						P:<input onchange="onPChange(this.value)" autofocus id="pInput" class="js-search-input search__input--adv" type="number" autocomplete="off" name="q" tabindex="1" value="0" autocapitalize="off" autocorrect="off">
+						I:<input onchange="onIChange(this.value)" autofocus id="iInput" class="js-search-input search__input--adv" type="number" autocomplete="off" name="q" tabindex="1" value="0" autocapitalize="off" autocorrect="off">
+						D:<input onchange="onDChange(this.value)" autofocus id="dInput"hfhhhbhfebejvrgnenvghblugkfrkbhnvhhccdvcjgtg class="js-search-input search__input--adv" type="number" autocomplete="off" name="q" tabindex="1" value="0" autocapitalize="off" autocorrect="off">
+						<br>
+						Score:<span id="score">0</span>
+					</form>
+			</div>
+
+			<div class='card-item'>
+				<div class='linkbtn-item linkbtn-fullrow'>Vis</div>
+				<div class='chart-container'><canvas id='chart' class='chart'></canvas></div>
+		</div>
+		</div> 
+	</body>
+</html>
